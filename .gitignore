@@ -1,0 +1,9 @@
+# Verstecke Umgebungsvariablen
+.env
+
+# Cache & Temp-Dateien
+__pycache__/
+*.pyc
+
+# Mac-spezifisch
+.DS_Store

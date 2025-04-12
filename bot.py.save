@@ -1,0 +1,32 @@
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+
+# Deinen Telegram API-Token hier einfügen
+TOKEN = "DEIN_TELEGRAM_BOT_TOKEN"
+
+# Startbefehl-Funktion
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text("Hallo! Ich bin dein Telegram-Bot. Wie kann ich helfen?")
+
+# Echo-Funktion (antwortet mit der gleichen Nachricht)
+def echo(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(update.message.text)
+
+# Hauptfunktion zum Starten des Bots
+def main():
+    updater = Updater(TOKEN, use_context=True)
+    dp = updater.dispatcher
+
+    # Befehle registrieren
+    dp.add_handler(CommandHandler("start", start))
+
+    # Nachrichtenecho registrieren
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+
+    # Bot starten
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
+
