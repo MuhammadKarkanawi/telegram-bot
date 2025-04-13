@@ -1,6 +1,9 @@
 import subprocess
+import sys
+import os
 
-bot_process = subprocess.Popen(["python", "main.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+script_path = os.path.join(os.getcwd(), "main.py")
+bot_process = subprocess.Popen([sys.executable, script_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 def start_bot():
     global bot_process
