@@ -15,7 +15,7 @@ def index():
 @app.route("/start", methods=["POST"])
 def start():
     msg = bot_runner.start_bot()
-return redirect(url_for("index"))
+    return redirect(url_for("index"))
 
 @app.route("/stop", methods=["POST"])
 def stop():
