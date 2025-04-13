@@ -6,7 +6,7 @@ import requests
 app = Flask(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")  # Telegram-Nutzer-ID
+CHAT_ID = os.getenv("CHAT_ID")
 
 @app.route("/")
 def index():
@@ -14,13 +14,13 @@ def index():
 
 @app.route("/start", methods=["POST"])
 def start():
-    msg = bot_runner.start_bot()
+    bot_runner.start_bot()
     return redirect(url_for("index"))
 
 @app.route("/stop", methods=["POST"])
 def stop():
-    msg = bot_runner.stop_bot()
-    return redirect(url_for("index", msg=msg))
+    bot_runner.stop_bot()
+    return redirect(url_for("index"))
 
 @app.route("/logs")
 def logs():
