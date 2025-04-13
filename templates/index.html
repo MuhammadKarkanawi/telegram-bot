@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Dashboard</title>
+</head>
+<body>
+    <h1>Telegram Bot Dashboard</h1>
+
+    <form method="post" action="/start">
+        <button type="submit">🚀 Bot starten</button>
+    </form>
+
+    <form method="post" action="/stop">
+        <button type="submit">🛑 Bot stoppen</button>
+    </form>
+
+    <h3>📨 Nachricht an Bot senden</h3>
+    <form method="post" action="/send">
+        <input type="text" name="message" placeholder="Deine Nachricht">
+        <button type="submit">Senden</button>
+    </form>
+
+    <h3>📜 Logs</h3>
+    <a href="/logs" target="_blank">Logs anzeigen</a>
+</body>
+</html>
