@@ -22,7 +22,9 @@ async def help(update: Update, context: CallbackContext):
     await update.message.reply_text("Ich bin dein Bot! Verfügbare Befehle:\n/start\n/help\n/random\n/weather\n/meme")
 
 async def echo(update: Update, context: CallbackContext):
-    await update.message.reply_text(update.message.text)
+    if update.message.text and not update.message.text.startswith("/"):
+        await update.message.reply_text(update.message.text)
+
 
 async def random_response(update: Update, context: CallbackContext):
     antworten = ["Ja!", "Nein!", "Vielleicht...", "Frag später nochmal!", "Auf jeden Fall!"]
