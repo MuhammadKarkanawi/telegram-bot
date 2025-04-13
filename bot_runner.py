@@ -1,6 +1,6 @@
 import subprocess
 
-bot_process = None
+bot_process = subprocess.Popen(["python", "main.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 def start_bot():
     global bot_process
