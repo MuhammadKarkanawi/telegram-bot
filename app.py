@@ -31,9 +31,22 @@ def logs():
 def send():
     message = request.form["message"]
     if message:
-        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-        requests.post(url, data={"chat_id": CHAT_ID, "text": message})
+        if message.strip() == "/meme":
+            meme = requests.get("https://meme-api.com/gimme").json()
+            meme_url = meme["url"]
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
+            requests.post(url, data={"chat_id": CHAT_ID, "photo": meme_url})
+        elif message.strip() == "/random":
+            antworten = ["Ja!", "Nein!", "Vielleicht...", "Frag später nochmal!", "Auf jeden Fall!"]
+            antwort = random.choice(antworten)
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+            requests.post(url, data={"chat_id": CHAT_ID, "text": antwort})
+        else:
+            # Standardtext senden
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+            requests.post(url, data={"chat_id": CHAT_ID, "text": message})
     return redirect(url_for("index"))
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
