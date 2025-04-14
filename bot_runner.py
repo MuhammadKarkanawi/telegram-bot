@@ -29,3 +29,5 @@ def get_logs():
         except:
             return "Fehler beim Lesen der Logs."
     return "Keine Logs verfügbar."
+    
+    
