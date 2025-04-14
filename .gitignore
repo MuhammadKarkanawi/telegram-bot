@@ -1,9 +1,32 @@
-# Verstecke Umgebungsvariablen
+# Bytecode-Dateien
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs
+*.log
+
+# .env mit API-Secrets
 .env
 
-# Cache & Temp-Dateien
-__pycache__/
-*.pyc
+# Virtuelle Umgebungen
+.venv/
+env/
+venv/
 
-# Mac-spezifisch
+# Betriebssystem-Zeugs
 .DS_Store
+Thumbs.db
+
+# Python dependency-Dateien vom Installer
+pip-log.txt
+
+# Docker Build-Cache
+*.pid
+*.seed
+*.pid.lock
+
+# Editor-Dateien
+.vscode/
+.idea/
+*.swp

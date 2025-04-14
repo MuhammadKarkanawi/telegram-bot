@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
+WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
 @app.route("/")
 def index():
