@@ -1,4 +1,3 @@
-flask
-python-telegram-bot==20.0
-python-dotenv
+python-telegram-bot==20.0b4  # oder die aktuelle Version, die du verwendest
 requests
+python-dotenv
